@@ -26,7 +26,7 @@ package net.kyori.adventure.text.serializer.legacy;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import net.kyori.adventure.internal.Internals;
+import java.util.Objects;
 import net.kyori.adventure.text.format.TextFormat;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -63,22 +63,24 @@ final class CharacterAndFormatImpl implements CharacterAndFormat {
     if (!(other instanceof CharacterAndFormatImpl)) return false;
     final CharacterAndFormatImpl that = (CharacterAndFormatImpl) other;
     return this.character == that.character
-      && this.format.equals(that.format)
+      && Objects.equals(this.format, that.format) // packetevents patch - format is null for reset
       && this.caseInsensitive == that.caseInsensitive;
   }
 
   @Override
   public int hashCode() {
     int result = this.character;
-    result = 31 * result + this.format.hashCode();
+    result = 31 * result + Objects.hashCode(this.format); // packetevents patch
     result = 31 * result + Boolean.hashCode(this.caseInsensitive);
     return result;
   }
 
+  // packetevents patch start - Internals is gone in adventure v5
   @Override
   public @NotNull String toString() {
-    return Internals.toString(this);
+    return "CharacterAndFormatImpl{character=" + this.character + ", format=" + this.format + ", caseInsensitive=" + this.caseInsensitive + "}";
   }
+  // packetevents patch end
 
   static final class Defaults {
     static final List<CharacterAndFormat> DEFAULTS = createDefaults();
