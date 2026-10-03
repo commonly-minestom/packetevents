@@ -7,6 +7,8 @@ bstats = "3.1.0"
 paper = "26.3.build.+"
 bungeecord = "1.21-R0.1"
 velocity = "4.1.1"
+minestom = "2026.09.12-26.2"
+jctools = "4.0.7"
 fabric-loader = "0.18.4"
 fabric-minecraft-intermediary = "1.21.11"
 fabric-minecraft-official = "26.3"
@@ -37,6 +39,8 @@ via-version = { group = "com.viaversion", name = "viaversion", version.ref = "vi
 paper = { group = "io.papermc.paper", name = "paper-api", version.ref = "paper" }
 bungeecord = { group = "net.md-5", name = "bungeecord-api", version.ref = "bungeecord" }
 velocity = { group = "com.velocitypowered", name = "velocity-api", version.ref = "velocity" }
+minestom = { group = "net.minestom", name = "minestom", version.ref = "minestom" }
+jctools = { group = "org.jctools", name = "jctools-core-jdk11", version.ref = "jctools" }
 classgraph = { group = "io.github.classgraph", name = "classgraph", version.ref = "classgraph" }
 checkerqual = { module = "org.checkerframework:checker-qual", version.ref = "checkerqual" }
 fabric-loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric-loader" }
